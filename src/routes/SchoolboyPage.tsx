@@ -7,7 +7,6 @@ import {
   Card,
   CardActionArea,
   CardContent,
-  CardMedia,
   Link,
   Typography,
 } from "@mui/material";
@@ -18,9 +17,9 @@ export const SchoolboyPage = () => {
   const schoolboys = useAllSchoolboys({
     variables: { ClassName: classKey as string },
   });
-  console.log("SchoolboyPage", schoolboys);
+  const intId = parseInt(id || "-1");
 
-  const schoolboy = schoolboys.data?.find((s) => s.Id === parseInt(id));
+  const schoolboy = schoolboys.data?.find((s) => s.Id === intId);
   return (
     <Box>
       <Breadcrumbs aria-label="breadcrumb" sx={{ marginY: 2 }}>
