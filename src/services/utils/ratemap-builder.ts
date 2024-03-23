@@ -11,7 +11,7 @@ export const rateMapBuilder = (rates: SchoolboyRate[]): RateBySchoolboyId => {
     if (!rateMap[rate.SchoolboyId][rate.ColumnId]) {
       rateMap[rate.SchoolboyId][rate.ColumnId] = rate;
     } else {
-      throw new Error("Duplicate rate");
+      console.log("Duplicated rate", rate);
     }
   }
   return rateMap;
