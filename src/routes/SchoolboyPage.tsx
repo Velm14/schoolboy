@@ -18,6 +18,7 @@ export const SchoolboyPage = () => {
     variables: { ClassName: classKey as string },
   });
   const intId = parseInt(id || "-1");
+  console.log("SchoolboyPage", id, classKey, intId, schoolboys.data);
 
   const schoolboy = schoolboys.data?.find((s) => s.Id === intId);
   return (
