@@ -1,4 +1,4 @@
-import { Breadcrumbs, Link, Typography } from "@mui/material";
+import { Breadcrumbs, Typography } from "@mui/material";
 import { useQueries } from "@tanstack/react-query";
 import { useAllSchoolboys } from "../queries/schoolboy.query.ts";
 import { useAllClassColumns } from "../queries/class.query.ts";
@@ -13,7 +13,7 @@ import { useState } from "react";
 
 export const RootPage = () => {
   const navigate = useNavigate();
-  const [currentClass, setCurrentClass] = useState("2");
+  const [currentClass] = useState("2");
 
   const { schoolboys, classColumns, rates, isLoading } = useQueries({
     queries: [
