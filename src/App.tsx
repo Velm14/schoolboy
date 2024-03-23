@@ -6,16 +6,21 @@ import { Container } from "@mui/material";
 import { NavBar } from "./components/nagivation/NavBar.tsx";
 import { NavDrawer } from "./components/nagivation/NavDrawer.tsx";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <RootPage />,
+    },
+    {
+      path: "/schoolboy/:classKey/:id",
+      element: <SchoolboyPage />,
+    },
+  ],
   {
-    path: "/",
-    element: <RootPage />,
+    basename: "https://velm14.github.io/schoolboy/",
   },
-  {
-    path: "/schoolboy/:classKey/:id",
-    element: <SchoolboyPage />,
-  },
-]);
+);
 
 function App() {
   return (
