@@ -13,7 +13,7 @@ const router = createHashRouter(
       element: <RootPage />,
     },
     {
-      path: "/schoolboy/:classKey/:id",
+      path: "/table/:classKey/:id",
       element: <SchoolboyPage />,
     },
   ],
