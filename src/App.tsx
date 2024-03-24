@@ -17,9 +17,9 @@ const router = createHashRouter(
       element: <SchoolboyPage />,
     },
   ],
-  {
-    basename: "https://velm14.github.io/schoolboy/",
-  },
+  // {
+  //   basename: "https://velm14.github.io/schoolboy/",
+  // },
 );
 
 function App() {
