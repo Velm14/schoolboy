@@ -42,6 +42,7 @@ function App() {
         <NavDrawer />
         <Snackbar
           open={open}
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
           autoHideDuration={6000}
           onClose={() => {
             setOpen(false);
@@ -51,7 +52,7 @@ function App() {
             onClose={() => {
               setOpen(false);
             }}
-            severity="success"
+            severity="error"
             variant="filled"
             sx={{ width: "100%" }}
           >

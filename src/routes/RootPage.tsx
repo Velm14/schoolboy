@@ -39,7 +39,7 @@ export const RootPage = () => {
       appContext.setError("Error loading data");
       appContext.setIsSnackbarOpen(true);
     }
-  }, [isError]);
+  }, [appContext, isError]);
 
   const updateRate = useUpdateSchoolboyRate();
   const deleteRate = useDeleteSchoolboyRate();
