@@ -9,13 +9,15 @@ import {
   useUpdateSchoolboyRate,
 } from "../mutators/schoolboy-rate.mutator.ts";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AppContext } from "../context/app-context.ts";
 
 export const RootPage = () => {
   const navigate = useNavigate();
   const [currentClass] = useState("2");
+  const appContext = useContext(AppContext);
 
-  const { schoolboys, classColumns, rates, isLoading } = useQueries({
+  const { schoolboys, classColumns, rates, isLoading, isError } = useQueries({
     queries: [
       useAllSchoolboys.getOptions({ ClassName: currentClass }),
       useAllClassColumns.getOptions({ ClassName: currentClass }),
@@ -27,9 +29,17 @@ export const RootPage = () => {
         classColumns: result?.[1]?.data || [],
         rates: result?.[2]?.data || [],
         isLoading: result.some((r) => r.isLoading),
+        isError: result.some((r) => r.isError),
       };
     },
   });
+
+  useEffect(() => {
+    if (isError) {
+      appContext.setError("Error loading data");
+      appContext.setIsSnackbarOpen(true);
+    }
+  }, [isError]);
 
   const updateRate = useUpdateSchoolboyRate();
   const deleteRate = useDeleteSchoolboyRate();
