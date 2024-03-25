@@ -57,8 +57,7 @@ export const RootPage = () => {
         classColumns={classColumns}
         rates={rates}
         onClickSchoolboy={(schoolboy) => {
-          console.log("Schoolboy clicked", schoolboy);
-          navigate(`/schoolboy/${currentClass}/${schoolboy.Id}`);
+          navigate(`/table/${currentClass}/${schoolboy.Id}`);
         }}
         onClickRate={(rateParams) => {
           const rate = rates.find(
@@ -66,7 +65,6 @@ export const RootPage = () => {
               r.SchoolboyId === rateParams.SchoolboyId &&
               r.ColumnId === rateParams.ColumnId,
           );
-          console.log("Rate clicked", rateParams, rate);
           if (!rate) {
             updateRate.mutate({
               ClassName: "2",
