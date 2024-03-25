@@ -17,9 +17,9 @@ const router = createHashRouter(
       element: <SchoolboyPage />,
     },
   ],
-  // {
-  //   basename: "https://velm14.github.io/schoolboy/",
-  // },
+  {
+    basename: "https://velm14.github.io/schoolboy/",
+  },
 );
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
     <div>
       <NavBar />
       <NavDrawer />
-      <Container>
+      <Container sx={{ paddingBottom: 10 }}>
         <RouterProvider router={router} />
         <ReactQueryDevtools position="bottom" />
       </Container>
