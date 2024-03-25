@@ -18,13 +18,12 @@ export const SchoolboyPage = () => {
     variables: { ClassName: classKey as string },
   });
   const intId = parseInt(id || "-1");
-  console.log("SchoolboyPage", id, classKey, intId, schoolboys.data);
 
   const schoolboy = schoolboys.data?.find((s) => s.Id === intId);
   return (
     <Box>
       <Breadcrumbs aria-label="breadcrumb" sx={{ marginY: 2 }}>
-        <Link underline="hover" color="inherit" href="/">
+        <Link underline="hover" color="inherit" href="/schoolboy/">
           Schoolboys class: {classKey}
         </Link>
         <Typography color="text.primary">Schoolboy Page {id}</Typography>
@@ -48,7 +47,7 @@ export const SchoolboyPage = () => {
         </CardActionArea>
       </Card>
       <Button>
-        <Link href="/">Go back</Link>
+        <Link href="/schoolboy/">Go back</Link>
       </Button>
     </Box>
   );
